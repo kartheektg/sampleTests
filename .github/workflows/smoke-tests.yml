@@ -8,7 +8,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-            cache: maven
+      - uses: actions/setup-java@v2
+      with:
+        distribution: 'temurin'
+        java-version: '11'
+        cache: 'maven'
+
       - name: Run Tests
         run: mvn test -Dtest=SampleTest
