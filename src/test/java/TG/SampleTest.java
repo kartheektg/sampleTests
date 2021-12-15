@@ -18,4 +18,18 @@ public class SampleTest {
                         body("MRData.CircuitTable.Circuits.circuitId",hasSize(20));
 
         }
+
+    @Test
+    public void test_APIWithBasicAuthentication_ShouldBeGivenAccess() {
+
+        given().
+                auth().
+                preemptive().
+                basic("username", "password").
+                when().
+                get("http://path.to/basic/secured/api").
+                then().
+                assertThat().
+                statusCode(400);
+    }
 }
