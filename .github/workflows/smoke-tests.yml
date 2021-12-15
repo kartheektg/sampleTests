@@ -8,5 +8,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        - with:
+            - cache: maven
       - name: Run Tests
         run: mvn test -Dtest=SampleTest
