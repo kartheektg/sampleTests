@@ -10,6 +10,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-java@v2
       with:
+        java-version: '17'
         cache: 'maven'
     - name: Run Tests
       run: mvn test -Dtest=SampleTest
