@@ -19,7 +19,9 @@ jobs:
       run: mvn test
 
     - name: Slack Notification
+      if: always()
       uses: slackapi/slack-github-action@v1.18.0
       with:
-        slack-message: ${{ job.status }}
-      if: failure()
+        status: ${{ job.status }}
+        notify_when: 'failure'
+        slack-message: 'Pipeline Failed'
