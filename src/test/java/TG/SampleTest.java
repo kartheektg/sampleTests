@@ -20,12 +20,12 @@ public class SampleTest {
                   get("/users?page=2").
           then().
                   assertThat().
-                  statusCode(200).
+                  statusCode(202).
                   body("data.id",hasSize(6));
 
     }
 
-    @Test
+//    @Test
     public void test_SingleUserNotFound() {
         given().
                 baseUri(baserURI).
@@ -36,7 +36,7 @@ public class SampleTest {
                 statusCode(404);
     }
 
-    @Test
+//    @Test
     public void test_CreateAUser() {
         String data = "{\n" +
                 "    \"name\": \"morpheus\",\n" +
@@ -55,7 +55,7 @@ public class SampleTest {
         Assert.assertEquals(201,response.statusCode());
     }
 
-    @Test
+//    @Test
     public void test_InvalidLogin() {
         String data = "{ email: peter@klaven}" ;
         Response response =
@@ -63,9 +63,9 @@ public class SampleTest {
                         baseUri(baserURI).
                         and().
                         body(data).
-                        when().
+                when().
                         post("/login").
-                        then().
+                then().
                         extract().response();
         Assert.assertEquals("Missing email or username",response.jsonPath().getString("error"));
         Assert.assertEquals(400,response.statusCode());
