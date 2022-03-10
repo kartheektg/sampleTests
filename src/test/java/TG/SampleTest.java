@@ -20,7 +20,7 @@ public class SampleTest {
                   get("/users?page=2").
           then().
                   assertThat().
-                  statusCode(202).
+                  statusCode(200).
                   body("data.id",hasSize(6));
 
     }
@@ -36,7 +36,7 @@ public class SampleTest {
                 statusCode(404);
     }
 
-//    @Test
+    @Test
     public void test_CreateAUser() {
         String data = "{\n" +
                 "    \"name\": \"morpheus\",\n" +
@@ -55,7 +55,7 @@ public class SampleTest {
         Assert.assertEquals(201,response.statusCode());
     }
 
-//    @Test
+    @Test
     public void test_InvalidLogin() {
         String data = "{ email: peter@klaven}" ;
         Response response =
