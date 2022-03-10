@@ -22,6 +22,6 @@ jobs:
       if: failure()
       uses: act10ns/slack@v1
       with:
-        status: ${{ job.status }}
+        status: ${{ jobName }}
         channel: '#team-ais-automation_builds'
         message: 'Pipeline Failed'
