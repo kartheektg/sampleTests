@@ -25,7 +25,7 @@ public class SampleTest {
 
     }
 
-//    @Test
+    @Test
     public void test_SingleUserNotFound() {
         given().
                 baseUri(baserURI).
